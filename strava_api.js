@@ -1,6 +1,3 @@
-// Link to access athlete token
-// https://www.strava.com/api/v3/athlete/activities?access_token=0fa0ae202f7092f5dfb5adf76b7bf7acb0cb932c
-
 const auth_link = "https://www.strava.com/oauth/token"
 
 function getActivities(response){
@@ -24,7 +21,7 @@ function reAuthorize(){
 
             client_id: '128691',
             client_secret: '5b9731c4e1b1313cc7d5bbaa65371a93a7ec0a86',
-            refresh_token: '5d257b97ddd58695dc03cdbf8ea9b4cbc016edfe',
+            refresh_token: '6b76ea9d526d179ffe5384f88d0396860723eb03',
             grant_type: 'refresh_token'
         })
     })
