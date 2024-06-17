@@ -5,7 +5,7 @@ function getActivities(response){
     const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${response.access_token}`
 
     fetch(activities_link)
-        .then((res) => res.json())
+        .then((res) => res.json()) // Parse the response into a JSON
         .then(function(data){
             for(var x=0; x<data.length; x++){
                 console.log(data[x].start_date)
