@@ -1,5 +1,12 @@
 const auth_link = "https://www.strava.com/oauth/token"
 
+
+function plotActivities(dates, distances){
+    data = {dates, distances}
+    Plotly.newPlot('strava_data', [data], {margin: { t: 0 }} )
+}
+
+
 function getActivities(response){
 
     const activities_link = `https://www.strava.com/api/v3/athlete/activities?access_token=${response.access_token}`
@@ -7,11 +14,20 @@ function getActivities(response){
     fetch(activities_link)
         .then((res) => res.json()) // Parse the response into a JSON
         .then(function(data){
+            let dates = [];
+            let distances = [];
             for(var x=0; x<data.length; x++){
-                console.log(data[x].start_date)
-                console.log(data[x].type)
-                console.log(data[x].distance)
+                let distance = data[x].distance
+                let type = data[x].type
+
+                if (type == 'Run'){
+                    distance *= 0.9322
+                }
+
+                dates.push(data[x].start_date);
+                distances.push(distance);
             }
+            plotActivities(dates, distances);
         })
 }
 
