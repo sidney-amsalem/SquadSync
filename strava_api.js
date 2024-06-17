@@ -3,7 +3,7 @@ const auth_link = "https://www.strava.com/oauth/token"
 
 function plotActivities(dates, distances){
     data = {dates, distances}
-    Plotly.newPlot('strava_data', [data], {margin: { t: 0 }} )
+    Plotly.newPlot('strava data', [data], {margin: { t: 0 }} )
 }
 
 
